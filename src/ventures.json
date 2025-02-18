@@ -6,21 +6,9 @@
     "category": "2024"
   },
   {
-    "title": "Tagui",
-    "imageSrc": "./assets/Tagui.png",
-    "url": "https://tagui.ar",
-    "category": "2024"
-  },
-  {
     "title": "Soup IT",
     "imageSrc": "./assets/soupit.png",
     "url": "https://soupit.ar",
-    "category": "2024"
-  },
-  {
-    "title": "Estudio Juridico Romano",
-    "imageSrc": "./assets/estudio.png",
-    "url": "https://estudiojuridicoromano.com.ar",
     "category": "2024"
   }
 ]
