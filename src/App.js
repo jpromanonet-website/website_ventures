@@ -63,7 +63,7 @@ function App() {
             className={classes.littleSpace}
             color="primary"
           >
-            Ventures, startups and income streams that I'm currently working or founded (click <a href="https://jpromano.net/about">here</a> to return home)
+            Ventures, startups and income streams that I'm currently working or founded (click <a href="https://jpromanonet.vercel.app">here</a> to return home)
           </Typography>
           <Typography
             variant="h5"

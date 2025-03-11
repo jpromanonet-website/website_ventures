@@ -1,6 +1,5 @@
 {
   "name": "website_ventures",
-  "homepage":"https://jpromano.net/ventures/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
