@@ -10,5 +10,18 @@
     "imageSrc": "./assets/soupit.png",
     "url": "https://soupit.ar",
     "category": "2024"
+  },
+  {
+    "title": "Puestito",
+    "imageSrc": "./assets/puestito.png",
+    "url": "https://puestito.com.ar",
+    "category": "2025"
+  },
+  
+  {
+    "title": "Gelero Ventures",
+    "imageSrc": "./assets/gelero.png",
+    "url": "https://geleroventures.com",
+    "category": "2025"
   }
 ]
