@@ -12,16 +12,27 @@
     "category": "2024"
   },
   {
+    "title": "Mate Gestion",
+    "imageSrc": "./assets/mategestion.png",
+    "url": "https://mategestion.com.ar",
+    "category": "2026"
+  },
+  {
     "title": "Puestito",
     "imageSrc": "./assets/puestito.png",
     "url": "https://puestito.com.ar",
     "category": "2025"
   },
-  
   {
-    "title": "Gelero Ventures",
-    "imageSrc": "./assets/gelero.png",
-    "url": "https://geleroventures.com",
+    "title": "Siro Ventures",
+    "imageSrc": "./assets/siroventures.png",
+    "url": "https://siroventures.com.ar",
+    "category": "2025"
+  },
+  {
+    "title": "Casa Eme",
+    "imageSrc": "./assets/casaeme.png",
+    "url": "https://casaeme.com.ar",
     "category": "2025"
   }
 ]
