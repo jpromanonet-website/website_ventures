@@ -123,7 +123,7 @@ function Footer() {
       <Box className={classes.divider} />
       
       <Typography variant="body2" className={classes.footerText}>
-        © 2025 Juan P. Romano. Built with ❤️.
+        © 2026 Juan P. Romano. Built with ❤️.
       </Typography>
     </Box>
   );
