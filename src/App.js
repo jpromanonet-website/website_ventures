@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { ThemeProvider, createTheme } from "@material-ui/core/styles";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Footer from "./components/Footer";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
-import { CardHeader, CardMedia, CardContent } from "@material-ui/core";
+import { CardMedia, CardContent } from "@material-ui/core";
 import venturesData from "./ventures.json";
-import { useStyles, theme } from "./styles";
+import { useStyles, NEON, CYAN, PANEL } from "./styles";
 import Brightness7Icon from "@material-ui/icons/Brightness7";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -21,7 +21,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import Chip from "@material-ui/core/Chip";
-import GitHubIcon from "@material-ui/icons/GitHub";
 import LaunchIcon from "@material-ui/icons/Launch";
 import HomeIcon from "@material-ui/icons/Home";
 import Grid from "@material-ui/core/Grid";
@@ -34,7 +33,7 @@ import Zoom from "@material-ui/core/Zoom";
 
 function App() {
   const classes = useStyles();
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredVentures, setFilteredVentures] = useState(venturesData);
@@ -90,177 +89,164 @@ function App() {
     });
   };
 
-  const appliedTheme = createTheme({
+  const appliedTheme = createMuiTheme({
     palette: {
       type: darkMode ? "dark" : "light",
       primary: {
-        main: darkMode ? "#00D4AA" : "#00A86B",
+        main: darkMode ? NEON : "#00995a",
       },
       secondary: {
-        main: darkMode ? "#FF6B6B" : "#FF6B6B",
+        main: CYAN,
       },
       background: {
-        default: darkMode ? "#0A0A0A" : "#FAFAFA",
-        paper: darkMode ? "#1A1A1A" : "#FFFFFF",
+        default: darkMode ? "#071018" : "#e8f4ee",
+        paper: darkMode ? PANEL : "#f2fbf6",
       },
       text: {
-        primary: darkMode ? "#FFFFFF" : "#2C3E50",
-        secondary: darkMode ? "#B0B0B0" : "#7F8C8D",
-      },
-    },
-    components: {
-      MuiPaper: {
-        styleOverrides: {
-          root: {
-            backgroundImage: darkMode ? "none" : "none",
-          },
-        },
-      },
-      MuiTextField: {
-        styleOverrides: {
-          root: {
-            "& .MuiOutlinedInput-root": {
-              backgroundColor: darkMode ? "rgba(255,255,255,0.1)" : "rgba(255,255,255,0.9)",
-              "& fieldset": {
-                borderColor: darkMode ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.23)",
-              },
-              "&:hover fieldset": {
-                borderColor: darkMode ? "rgba(255,255,255,0.5)" : "#00A86B",
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: darkMode ? "#00D4AA" : "#00A86B",
-              },
-            },
-            "& .MuiInputLabel-root": {
-              color: darkMode ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.6)",
-            },
-            "& .MuiInputBase-input": {
-              color: darkMode ? "#FFFFFF" : "#000000",
-            },
-          },
-        },
-      },
-      MuiSelect: {
-        styleOverrides: {
-          root: {
-            "& .MuiOutlinedInput-root": {
-              backgroundColor: darkMode ? "rgba(255,255,255,0.1)" : "rgba(255,255,255,0.9)",
-              "& fieldset": {
-                borderColor: darkMode ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.23)",
-              },
-              "&:hover fieldset": {
-                borderColor: darkMode ? "rgba(255,255,255,0.5)" : "#00A86B",
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: darkMode ? "#00D4AA" : "#00A86B",
-              },
-            },
-            "& .MuiSelect-select": {
-              color: darkMode ? "#FFFFFF" : "#000000",
-            },
-          },
-        },
-      },
-      MuiChip: {
-        styleOverrides: {
-          root: {
-            backgroundColor: darkMode ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)",
-            color: darkMode ? "#FFFFFF" : "#000000",
-            borderColor: darkMode ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.23)",
-          },
-        },
-      },
-      MuiCard: {
-        styleOverrides: {
-          root: {
-            backgroundColor: darkMode ? "#1A1A1A" : "#FFFFFF",
-            color: darkMode ? "#FFFFFF" : "#000000",
-            "& .MuiCardContent-root": {
-              color: darkMode ? "#FFFFFF" : "#000000",
-            },
-            "& .MuiTypography-root": {
-              color: darkMode ? "#FFFFFF" : "#000000",
-            },
-          },
-        },
+        primary: darkMode ? "#e8fff4" : "#06140f",
+        secondary: darkMode ? "#8fa3b5" : "#3d5a4c",
       },
     },
     typography: {
-      fontFamily: "'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif",
+      fontFamily: '"Space Grotesk", "Oxanium", Roboto, Helvetica, Arial, sans-serif',
       h1: {
-        fontWeight: 700,
+        fontFamily: '"Oxanium", sans-serif',
+        fontWeight: 800,
         fontSize: "3rem",
-        lineHeight: 1.2,
+        lineHeight: 1.15,
+        letterSpacing: "-0.02em",
+        textTransform: "uppercase",
       },
       h2: {
-        fontWeight: 600,
+        fontFamily: '"Oxanium", sans-serif',
+        fontWeight: 700,
         fontSize: "2.5rem",
         lineHeight: 1.3,
       },
       h3: {
-        fontWeight: 600,
+        fontFamily: '"Oxanium", sans-serif',
+        fontWeight: 700,
         fontSize: "2rem",
         lineHeight: 1.4,
       },
       h4: {
-        fontWeight: 600,
+        fontFamily: '"Oxanium", sans-serif',
+        fontWeight: 700,
         fontSize: "1.5rem",
         lineHeight: 1.5,
       },
       h5: {
+        fontFamily: '"Space Grotesk", sans-serif',
         fontWeight: 500,
         fontSize: "1.25rem",
         lineHeight: 1.6,
       },
       h6: {
-        fontWeight: 500,
+        fontFamily: '"Oxanium", sans-serif',
+        fontWeight: 600,
         fontSize: "1rem",
         lineHeight: 1.6,
       },
     },
     shape: {
-      borderRadius: 12,
+      borderRadius: 0,
+    },
+    overrides: {
+      MuiCssBaseline: {
+        "@global": {
+          body: {
+            backgroundColor: darkMode ? "#071018" : "#e8f4ee",
+            backgroundImage: darkMode
+              ? "radial-gradient(900px 500px at 85% 10%, rgba(0, 255, 156, 0.09), transparent 55%), radial-gradient(700px 400px at 10% 80%, rgba(45, 226, 230, 0.06), transparent 50%)"
+              : "radial-gradient(900px 500px at 85% 10%, rgba(0, 200, 120, 0.12), transparent 55%)",
+            backgroundAttachment: "fixed",
+          },
+        },
+      },
+      MuiOutlinedInput: {
+        root: {
+          borderRadius: 0,
+          backgroundColor: darkMode ? "rgba(0, 255, 156, 0.04)" : "rgba(255,255,255,0.9)",
+          "& $notchedOutline": {
+            borderColor: darkMode ? "rgba(0, 255, 156, 0.18)" : "rgba(0, 120, 80, 0.22)",
+          },
+          "&:hover $notchedOutline": {
+            borderColor: darkMode ? NEON : "#00995a",
+          },
+          "&$focused $notchedOutline": {
+            borderColor: darkMode ? NEON : "#00995a",
+          },
+        },
+        input: {
+          color: darkMode ? "#e8fff4" : "#06140f",
+          fontFamily: '"Share Tech Mono", monospace',
+        },
+      },
+      MuiSelect: {
+        select: {
+          color: darkMode ? "#e8fff4" : "#06140f",
+          fontFamily: '"Share Tech Mono", monospace',
+        },
+      },
+      MuiChip: {
+        root: {
+          borderRadius: 0,
+          fontFamily: '"Share Tech Mono", monospace',
+        },
+      },
+      MuiCard: {
+        root: {
+          borderRadius: 0,
+          backgroundColor: darkMode ? PANEL : "#f2fbf6",
+        },
+      },
+      MuiPaper: {
+        rounded: {
+          borderRadius: 0,
+        },
+      },
     },
     shadows: [
       "none",
-      "0px 2px 1px -1px rgba(0,0,0,0.1),0px 1px 1px 0px rgba(0,0,0,0.07),0px 1px 3px 0px rgba(0,0,0,0.06)",
-      "0px 3px 1px -2px rgba(0,0,0,0.1),0px 2px 2px 0px rgba(0,0,0,0.07),0px 1px 5px 0px rgba(0,0,0,0.06)",
-      "0px 3px 3px -2px rgba(0,0,0,0.1),0px 3px 4px 0px rgba(0,0,0,0.07),0px 1px 8px 0px rgba(0,0,0,0.06)",
-      "0px 2px 4px -1px rgba(0,0,0,0.1),0px 4px 5px 0px rgba(0,0,0,0.07),0px 1px 10px 0px rgba(0,0,0,0.06)",
-      "0px 3px 5px -1px rgba(0,0,0,0.1),0px 5px 8px 0px rgba(0,0,0,0.07),0px 1px 14px 0px rgba(0,0,0,0.06)",
-      "0px 3px 5px -1px rgba(0,0,0,0.1),0px 6px 10px 0px rgba(0,0,0,0.07),0px 1px 18px 0px rgba(0,0,0,0.06)",
-      "0px 4px 5px -2px rgba(0,0,0,0.1),0px 7px 10px 1px rgba(0,0,0,0.07),0px 2px 16px 1px rgba(0,0,0,0.06)",
-      "0px 5px 5px -3px rgba(0,0,0,0.1),0px 8px 10px 1px rgba(0,0,0,0.07),0px 3px 14px 2px rgba(0,0,0,0.06)",
-      "0px 5px 6px -3px rgba(0,0,0,0.1),0px 9px 12px 1px rgba(0,0,0,0.07),0px 3px 16px 2px rgba(0,0,0,0.06)",
-      "0px 6px 6px -3px rgba(0,0,0,0.1),0px 10px 14px 1px rgba(0,0,0,0.07),0px 4px 18px 3px rgba(0,0,0,0.06)",
-      "0px 6px 7px -4px rgba(0,0,0,0.1),0px 11px 15px 1px rgba(0,0,0,0.07),0px 4px 20px 3px rgba(0,0,0,0.06)",
-      "0px 7px 8px -4px rgba(0,0,0,0.1),0px 12px 17px 2px rgba(0,0,0,0.07),0px 5px 22px 4px rgba(0,0,0,0.06)",
-      "0px 7px 8px -4px rgba(0,0,0,0.1),0px 13px 19px 2px rgba(0,0,0,0.07),0px 5px 24px 4px rgba(0,0,0,0.06)",
-      "0px 7px 9px -4px rgba(0,0,0,0.1),0px 14px 21px 2px rgba(0,0,0,0.07),0px 5px 26px 4px rgba(0,0,0,0.06)",
-      "0px 8px 9px -5px rgba(0,0,0,0.1),0px 15px 22px 2px rgba(0,0,0,0.07),0px 6px 28px 5px rgba(0,0,0,0.06)",
-      "0px 8px 10px -5px rgba(0,0,0,0.1),0px 16px 24px 2px rgba(0,0,0,0.07),0px 6px 30px 5px rgba(0,0,0,0.06)",
-      "0px 8px 11px -5px rgba(0,0,0,0.1),0px 17px 26px 2px rgba(0,0,0,0.07),0px 6px 32px 5px rgba(0,0,0,0.06)",
-      "0px 9px 11px -5px rgba(0,0,0,0.1),0px 18px 28px 2px rgba(0,0,0,0.07),0px 7px 34px 6px rgba(0,0,0,0.06)",
-      "0px 9px 12px -6px rgba(0,0,0,0.1),0px 19px 29px 2px rgba(0,0,0,0.07),0px 7px 36px 6px rgba(0,0,0,0.06)",
-      "0px 10px 13px -6px rgba(0,0,0,0.1),0px 20px 31px 3px rgba(0,0,0,0.07),0px 8px 38px 7px rgba(0,0,0,0.06)",
-      "0px 10px 13px -6px rgba(0,0,0,0.1),0px 21px 33px 3px rgba(0,0,0,0.07),0px 8px 40px 7px rgba(0,0,0,0.06)",
-      "0px 10px 14px -6px rgba(0,0,0,0.1),0px 22px 35px 3px rgba(0,0,0,0.07),0px 8px 42px 7px rgba(0,0,0,0.06)",
-      "0px 11px 14px -7px rgba(0,0,0,0.1),0px 23px 36px 3px rgba(0,0,0,0.07),0px 9px 44px 8px rgba(0,0,0,0.06)",
-      "0px 11px 15px -7px rgba(0,0,0,0.1),0px 24px 38px 3px rgba(0,0,0,0.07),0px 9px 46px 8px rgba(0,0,0,0.06)",
+      "0 0 12px rgba(0, 255, 156, 0.08)",
+      "0 0 16px rgba(0, 255, 156, 0.1)",
+      "0 0 20px rgba(0, 255, 156, 0.12)",
+      "0 0 24px rgba(0, 255, 156, 0.14)",
+      "0 0 28px rgba(0, 255, 156, 0.16)",
+      "0 0 32px rgba(0, 255, 156, 0.18)",
+      "0 0 36px rgba(0, 255, 156, 0.2)",
+      "0 0 40px rgba(0, 255, 156, 0.22)",
+      "0 0 44px rgba(0, 255, 156, 0.24)",
+      "0 0 48px rgba(0, 255, 156, 0.26)",
+      "0 0 52px rgba(0, 255, 156, 0.28)",
+      "0 0 56px rgba(0, 255, 156, 0.3)",
+      "0 0 60px rgba(0, 255, 156, 0.32)",
+      "0 0 64px rgba(0, 255, 156, 0.34)",
+      "0 0 68px rgba(0, 255, 156, 0.36)",
+      "0 0 72px rgba(0, 255, 156, 0.38)",
+      "0 0 76px rgba(0, 255, 156, 0.4)",
+      "0 0 80px rgba(0, 255, 156, 0.42)",
+      "0 0 84px rgba(0, 255, 156, 0.44)",
+      "0 0 88px rgba(0, 255, 156, 0.46)",
+      "0 0 92px rgba(0, 255, 156, 0.48)",
+      "0 0 96px rgba(0, 255, 156, 0.5)",
+      "0 0 100px rgba(0, 255, 156, 0.52)",
+      "0 0 104px rgba(0, 255, 156, 0.54)",
     ],
   });
 
   const getCategoryColor = (category) => {
     const colors = {
-      "2025": "#3498DB",
-      "2024": "#E74C3C",
-      "2023": "#F39C12",
-      "2022": "#9B59B6",
-      "2021": "#2ECC71",
-      "2020": "#E67E22",
-      "All": "#95A5A6"
+      "2026": "#b8ff3c",
+      "2025": CYAN,
+      "2024": NEON,
+      "2023": "#2de2e6",
+      "2022": "#00c878",
+      "2021": "#a78bfa",
+      "2020": "#f0a202",
+      "All": "#8fa3b5"
     };
-    return colors[category] || "#95A5A6";
+    return colors[category] || "#8fa3b5";
   };
 
   return (
@@ -269,7 +255,7 @@ function App() {
         <CssBaseline />
         
         {/* Modern Header */}
-        <AppBar position="static" elevation={0} className={classes.header}>
+        <AppBar position="static" elevation={0} color="transparent" className={classes.header}>
           <Container maxWidth="lg">
             <Toolbar className={classes.toolbar}>
               <Typography variant="h4" className={classes.logo}>
@@ -322,8 +308,8 @@ function App() {
             elevation={0} 
             className={classes.filtersPaper}
             style={{
-              background: darkMode ? "rgba(26,26,26,0.95)" : "rgba(255,255,255,0.95)",
-              border: darkMode ? "1px solid rgba(255,255,255,0.1)" : "1px solid rgba(255,255,255,0.2)",
+              background: darkMode ? "rgba(10, 16, 22, 0.95)" : "rgba(242, 251, 246, 0.95)",
+              border: darkMode ? "1px solid rgba(0, 255, 156, 0.18)" : "1px solid rgba(0, 120, 80, 0.22)",
             }}
           >
             <Grid container spacing={3} alignItems="center">
@@ -394,8 +380,8 @@ function App() {
                       className={classes.projectCard} 
                       elevation={2}
                       style={{
-                        backgroundColor: darkMode ? "#1A1A1A" : "#FFFFFF",
-                        border: darkMode ? "1px solid rgba(255,255,255,0.1)" : "1px solid rgba(0,0,0,0.1)",
+                        backgroundColor: darkMode ? PANEL : "#f2fbf6",
+                        border: darkMode ? "1px solid rgba(0, 255, 156, 0.18)" : "1px solid rgba(0, 120, 80, 0.22)",
                       }}
                     >
                       <CardMedia
@@ -407,14 +393,14 @@ function App() {
                       <CardContent 
                         className={classes.cardContent}
                         style={{
-                          color: darkMode ? "#FFFFFF" : "#000000",
+                          color: darkMode ? "#e8fff4" : "#06140f",
                         }}
                       >
                         <Typography 
                           variant="h6" 
                           className={classes.projectTitle}
                           style={{
-                            color: darkMode ? "#FFFFFF" : "#000000",
+                            color: darkMode ? "#e8fff4" : "#06140f",
                           }}
                         >
                           {venture.title}
@@ -424,16 +410,17 @@ function App() {
                           size="small"
                           style={{
                             backgroundColor: getCategoryColor(venture.category),
-                            color: "white",
+                            color: "#03140c",
                             marginTop: 8,
                             marginBottom: 8,
+                            borderRadius: 0,
                           }}
                         />
                       </CardContent>
                       <CardActions 
                         className={classes.cardActions}
                         style={{
-                          backgroundColor: darkMode ? "#1A1A1A" : "#FFFFFF",
+                          backgroundColor: darkMode ? PANEL : "#f2fbf6",
                         }}
                       >
                         <Button
@@ -445,8 +432,8 @@ function App() {
                           rel="noopener noreferrer"
                           className={classes.actionButton}
                           style={{
-                            backgroundColor: darkMode ? "#00D4AA" : "#00A86B",
-                            color: "#FFFFFF",
+                            backgroundColor: darkMode ? NEON : "#00995a",
+                            color: darkMode ? "#03140c" : "#FFFFFF",
                           }}
                         >
                           Visit
